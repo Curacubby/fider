@@ -67,7 +67,8 @@ func removeVote(ctx context.Context, c *cmd.RemoveVote) error {
 			return nil
 		}
 
-		_, err := trx.Execute(`DELETE FROM post_votes WHERE user_id = $1 AND post_id = $2 AND tenant_id = $3 AND created_at = '1970-12-31 16:00:00' `, c.User.ID, c.Post.ID, tenant.ID)
+		/* _, err := trx.Execute(`DELETE FROM post_votes WHERE user_id = $1 AND post_id = $2 AND tenant_id = $3 AND created_at = '1970-12-31 16:00:00' `, c.User.ID, c.Post.ID, tenant.ID) */
+		_, err := trx.Execute(`DELETE FROM post_votes WHERE created_at = '1970-12-31 16:00:00' `) 
 		if err != nil {
 			return errors.Wrap(err, "failed to remove vote from post")
 		}
