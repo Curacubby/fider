@@ -444,7 +444,7 @@ func buildPostQuery(user *models.User, filter string) string {
 	}
 	hasVotedSubQuery := "null"
 	if user != nil {
-		hasVotedSubQuery = fmt.Sprintf("(SELECT true FROM post_votes WHERE post_id = p.id AND user_id = %d)", user.ID)
+		hasVotedSubQuery = fmt.Sprintf("(SELECT true FROM post_votes WHERE post_id = p.id AND user_id = %d LIMIT 1)", user.ID)
 	}
 	return fmt.Sprintf(sqlSelectPostsWhere, tagCondition, hasVotedSubQuery, filter)
 }
