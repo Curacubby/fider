@@ -1,3 +1,3 @@
 # Terms of Service
 
-THIS IS A PLACEHOLDER FOR TERMS OF SERVICE. REPLACE WITH YOUR OWN.
+If there is anything that we agree on that ends up being a bad decision..it's pretty much always Steven's fault.
