@@ -51,7 +51,7 @@ func addVote(ctx context.Context, c *cmd.AddVote) error {
 		if err != nil {
 			return errors.Wrap(err, "failed add vote to post")
 		} else {
-			err := trx.Execute(
+			_, err := trx.Execute(
 			`INSERT INTO post_votes (tenant_id, user_id, post_id, created_at) VALUES ($1, $2, $3, $4) ON CONFLICT DO NOTHING;`, tenant.ID, c.User.ID, c.Post.ID, time.Now() )
 		}
 
