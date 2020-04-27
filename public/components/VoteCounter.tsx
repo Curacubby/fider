@@ -26,7 +26,6 @@ export const VoteCounter = (props: VoteCounterProps) => {
     const action = hasVoted ? actions.removeVote : actions.addVote;
 
     const response = await action(props.post.number);
-    setState();
     if (response.ok) {
       setVotesCount(votesCount + (hasVoted ? -1 : 1));
       setHasVoted(hasVoted);
