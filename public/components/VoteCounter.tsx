@@ -22,13 +22,13 @@ export const VoteCounter = (props: VoteCounterProps) => {
       setIsSignInModalOpen(true);
       return;
     }
-
+    window.location.reload(false);
     const action = hasVoted ? actions.removeVote : actions.addVote;
 
     const response = await action(props.post.number);
     if (response.ok) {
-      setVotesCount(votesCount + (hasVoted ? -1 : 1));
-      setHasVoted(hasVoted);
+      setVotesCount(votesCount + (hasVoted ? -1 : 2));
+      setHasVoted(!hasVoted);
     }
 
 
