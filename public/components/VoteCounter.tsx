@@ -29,7 +29,7 @@ export const VoteCounter = (props: VoteCounterProps) => {
     setState();
     if (response.ok) {
       setVotesCount(votesCount + (hasVoted ? -1 : 1));
-     
+      setHasVoted(hasVoted);
     }
 
 
